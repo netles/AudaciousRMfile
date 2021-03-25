@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 #script name : AudaciousRMfile
 #version : 0.1
+#os : Linux
 #author : netles
 #description: it will delete"bad" music from you disk untill it playing. Add music to audacious, listen, when playing shit, put hotkey to delete it.
 #HOW to USE
