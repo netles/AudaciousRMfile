@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 #script name : AudaciousRMfile
-#version : 0.1
-#os : Linux
+#version : 0.2
 #author : netles
 #description: it will delete"bad" music from you disk untill it playing. Add music to audacious, listen, when playing shit, put hotkey to delete it.
 #HOW to USE
@@ -12,12 +11,10 @@
 
 #all options see on audtool --help, after installation audacious
 #check also gio, you can use any remove utilites, for example rm, gvfs-trash, trash
-gio trash "$(audtool current-song-filename)"
+TRACK=$(audtool current-song-filename)
+DELPL=$(audtool playlist-position)
+gio trash "$TRACK"
 # other way - moving file to some folder
 # mv "$(audtool current-song-filename)" ~/.MyTrash
-
-#remove track from audacious playlist
-audtool playlist-delete $(audtool playlist-position)
-#then run playback
-audtool playback-play
-
+audtool playlist-advance 
+audtool playlist-delete "$DELPL"
